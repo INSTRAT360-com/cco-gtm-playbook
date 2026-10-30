@@ -30,7 +30,7 @@ If the CCO connector is available, the steps run on the user's CCO account inste
 - `cco_company`, `cco_person`, `cco_research_account`: research;
 - `cco_check_draft`, `cco_rewrite_draft`: the buyer read and quality bar on any draft;
 - `cco_approve_send`: sending through the user's approval gate;
-- `cco_replies`, `cco_meetings`: replies and meetings.
+- `cco_replies`, `cco_meeting_times`, `cco_book_meeting`, `cco_meetings`: replies and meetings.
 
 Prefer these tools over manual work. Show the user what CCO returned, including its sources and the next step it suggests.
 

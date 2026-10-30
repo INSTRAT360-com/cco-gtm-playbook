@@ -14,7 +14,12 @@ It works on its own. **Connect [CCO](https://www.my-ai-cco.com)** and Claude run
 
 ## Install
 
-In Claude Code or Cowork:
+### In the Claude app (claude.ai, desktop, mobile)
+1. Download [`cco-gtm-playbook-skill.zip`](https://github.com/INSTRAT360-com/cco-gtm-playbook/raw/main/dist/cco-gtm-playbook-skill.zip).
+2. In Claude, open **Settings → Capabilities → Skills** and upload the zip. Skills must be turned on for your account; on Team and Enterprise plans, your admin may need to allow them.
+3. Start a new chat and ask: "Find 20 customers like my best one".
+
+### In Claude Code
 
 ```
 /plugin marketplace add INSTRAT360-com/cco-gtm-playbook
