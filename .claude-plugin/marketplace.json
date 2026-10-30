@@ -1,0 +1,20 @@
+{
+  "name": "cco",
+  "owner": {
+    "name": "CCO by INSTRAT360",
+    "url": "https://www.my-ai-cco.com"
+  },
+  "metadata": {
+    "description": "Free sales and go-to-market plugins from CCO by INSTRAT360."
+  },
+  "plugins": [
+    {
+      "name": "cco-gtm-playbook",
+      "source": "./",
+      "description": "The B2B outbound playbook that runs itself: offer and ideal customer, companies with a real reason to talk now, the right person, short evidence-based emails, replies and meetings. Works on its own; connect CCO and Claude does the work with you.",
+      "version": "0.1.0",
+      "category": "sales",
+      "homepage": "https://www.my-ai-cco.com"
+    }
+  ]
+}
