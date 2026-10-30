@@ -15,6 +15,12 @@ Choose one of the following and say which:
 - **DEFER:** the timing is wrong (e.g. they just announced layoffs).
 - **DO NOT CONTACT:** an opt-out, an existing customer, a competitor, or no lawful basis.
 
+## Know their business before you write
+You need at least **one real fact about what the company sells or how it works**, beyond the signal itself. Funding alone is not enough to say anything about their sales.
+- With CCO: if `cco_company` doesn't show what they sell, run `cco_research_account` **first**, then write.
+- Without CCO: read their website (product, customers, pricing page, jobs) before writing.
+- Still nothing? Decide **ENRICH**, not SEND. Never fill the gap with a guess about their situation ("you're probably limited by…").
+
 ## Then write
 - **50–90 words** for a first email. Short paragraphs; no bullet lists.
 - **Opening:** their signal, in their terms ("Saw you're hiring two account executives in Aarhus").
@@ -31,7 +37,8 @@ Choose one of the following and say which:
 
 ## Check before sending (score out of 25; send at 21 or more)
 Score each of these 0–5: **Relevance** (about their signal) · **Evidence** (every claim sourced) · **Clarity** (one idea, plain words) · **Ask** (one small next step) · **Tone** (sounds like a person, fits the language). Any compliance problem (no basis, an opt-out, an invented claim) fails the email whatever the score.
-- With CCO: `cco_check_draft` returns the buyer read and score against the user's quality bar; `cco_rewrite_draft` rewrites; `cco_approve_send` sends from the user's own mailbox through their approval gate. Never send any other way.
+- With CCO: `cco_check_draft` returns the buyer read and score against the user's quality bar. If it scores under the bar, fix what the read says, at most 3 rounds. If it is still under, go back for a fact (`cco_research_account`) rather than polishing the wording again. `cco_approve_send` sends from the user's own mailbox through their approval gate. Never send any other way.
+- If a CCO check fails or times out, say so plainly and try it once more. Never present an unchecked draft as checked.
 
 ## Output
 The decision, the email (subject and body), the score per line, and the sources used.
