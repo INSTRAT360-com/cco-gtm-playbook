@@ -9,7 +9,7 @@ description: Define a B2B offer and ideal customer profile (ICP) from the user's
 
 ## Do this
 1. Ask for the user's website (and, if they have one, their best current customer).
-   - With CCO: `cco_setup` reads it and proposes the offer.
+   - With CCO: call `cco_setup` with the website and everything this conversation already holds (what they sell, customers, markets, proof points, customer examples, competitors, buyer roles, industries to avoid, tone, languages, sender name, signature). Ask the user only for what is missing.
 2. Read the site and the best customer's site. Write down only what is supported by them:
    - **What you sell:** one sentence, in the buyer's words, not the product's.
    - **Three outcomes:** what changes for the customer. Use numbers only if the site states them.
@@ -21,6 +21,7 @@ description: Define a B2B offer and ideal customer profile (ICP) from the user's
    - **the signals that make now a good time** (for example: hiring in sales, a new leader, funding, expansion, a new site, a product launch, a regulation deadline, a tender);
    - who to avoid (too small, wrong model, existing customers, competitors).
 4. Show it as a short card, and ask: "Is this right? What would you change?" Update until the user says yes.
+   - With CCO: save the confirmed card with `cco_setup` (same fields) so CCO keeps it and never asks again.
 
 ## Quality bar
 - A stranger can tell what you sell from the first sentence.

@@ -25,7 +25,7 @@ The playbook is seven steps. Each step is its own skill, and each works with or 
 ## With CCO connected (tools named `cco_*`)
 If the CCO connector is available, the steps run on the user's CCO account instead of by hand:
 - `cco_status` / `cco_today`: what is already running and what needs the user;
-- `cco_setup`: offer and ideal customer;
+- `cco_setup`: offer and ideal customer; pass what the conversation already knows (proof, customers, competitors, buyer roles, industries to avoid, tone, languages, sender) before asking again;
 - `cco_find`, `cco_scout`, `cco_start_mission`: finding companies;
 - `cco_company`, `cco_person`, `cco_research_account`: research;
 - `cco_check_draft`, `cco_rewrite_draft`: the buyer read and quality bar on any draft;
