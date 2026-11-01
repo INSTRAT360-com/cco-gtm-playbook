@@ -1,0 +1,111 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "cco",
+  "version": "0.3.0",
+  "description": "Delegate your commercial work to CCO: find buyers, research accounts, write and send outreach, book meetings, build account plans and decks. The CCO connector does the work in your CCO workspace; the CCO GTM Playbook skills tell the assistant when to hand a commercial goal to CCO and how to run each step.",
+  "author": {
+    "name": "CCO by INSTRAT360",
+    "email": "CCO@my-ai-cco.com",
+    "url": "https://www.my-ai-cco.com"
+  },
+  "homepage": "https://www.my-ai-cco.com",
+  "repository": "https://github.com/INSTRAT360-com/cco-gtm-playbook",
+  "license": "MIT",
+  "keywords": [
+    "sales",
+    "outbound",
+    "b2b",
+    "prospecting",
+    "outreach",
+    "meetings",
+    "account planning",
+    "pipeline",
+    "gtm"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "CCO",
+        "shortDescription": "Your commercial team",
+        "longDescription": "Delegate your commercial work to CCO: find buyers, research accounts, write and send outreach, book meetings, account plans, decks.\n\nCCO finds companies with a dated reason to talk now, picks the right person and writes in their language. It works on its own within the level you choose: Ask me every time, Ask for new people, or Go by yourself. Only real exceptions need you. Every fact has a source and a date. Email shows as sent only when your mailbox confirms it; LinkedIn messages are sent from your LinkedIn and tracked from Prepared to Verified sent.\n\nWhat you can hand to CCO:\n- Find buyers: searches that keep running after the conversation ends, each company with fit, why now (source and date) and the named buyer.\n- Research accounts: company dossiers, buying groups and warm paths.\n- Write and send outreach: each message read as the buyer before it goes out, sent from your own mailbox; LinkedIn messages from your own LinkedIn through the CCO browser extension, inside daily limits.\n- Answer replies and book meetings: real free times from your calendar, invites with a video link and a meeting brief.\n- Build account plans and decks grounded in your CCO records, and save changes back to CCO as new versions.\n- See what needs you today and how each search is moving, as a live board in the chat.\n\nIncludes the CCO GTM Playbook: skills for the offer and ideal customer, finding buyers, the right person, the first email, LinkedIn, replies and meetings, a weekly rhythm and 90-day plan, account plans, pipeline reviews, buyer decks and team reviews, plus a get-started skill that connects your workspace and sets the level.\n\nFor B2B founders, sales leaders and sellers.\n\nGood to know:\n- You need a CCO workspace (my-ai-cco.com). You sign in once with a code.\n- Every send passes CCO's checks: lawful basis, opt-outs and suppression, daily limits and a quality bar. People who opt out are never contacted again.\n- CCO works only in the workspace you connect and shows only what your seat in CCO may see.\n- Disconnecting stops ChatGPT from seeing your CCO data; your searches keep running in CCO and nothing is deleted there.",
+        "developerName": "Instrat360",
+        "category": "Business & Operations",
+        "capabilities": [
+          "Find buyers with a sourced reason to talk now",
+          "Research accounts and buying groups",
+          "Write and send outreach from your own mailbox",
+          "Answer replies and book meetings",
+          "Build account plans and decks",
+          "Track searches and the pipeline"
+        ],
+        "websiteURL": "https://www.my-ai-cco.com",
+        "supportURL": "https://www.my-ai-cco.com/#contact",
+        "privacyPolicyURL": "https://www.my-ai-cco.com/privacy",
+        "termsOfServiceURL": "https://www.my-ai-cco.com/terms",
+        "defaultPrompt": [
+          "Find 20 companies like my best customer that have a reason to talk to us now.",
+          "Answer my new replies and book the meetings buyers asked for.",
+          "Build an account plan and a deck for my next meeting with my biggest customer."
+        ],
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      },
+      "onboardingSkill": "./skills/get-started/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Start: who the person is in CCO and what needs them today",
+              "prompt": "What needs me in CCO today?",
+              "tools_triggered": "cco_status, cco_today",
+              "expected_behavior": "States the connected workspace, then lists the decisions waiting, the messages waiting and the strongest fresh buying signals, each with its source and a link into CCO. Nothing is changed or sent."
+            },
+            {
+              "description": "Find buyers in one look",
+              "prompt": "Find Danish B2B software companies with 20-200 people that are hiring salespeople.",
+              "tools_triggered": "cco_scout",
+              "expected_behavior": "Returns companies with fit, a why-now signal with its source and age, the named buyer and whether the CRM already has them. Nothing is sent."
+            },
+            {
+              "description": "Research an account and its buying group",
+              "prompt": "Research the strongest company in my CCO and show me its buying group.",
+              "tools_triggered": "cco_find, cco_research_account, cco_company",
+              "expected_behavior": "Finds the company, runs CCO's research with buyers=true, then shows the dossier's strongest facts with sources and dates, the buying group and the open questions. Nothing is sent."
+            },
+            {
+              "description": "Hand a commercial goal to CCO as a search, asking before each message",
+              "prompt": "Start a search for 20 new customers like my best one, and ask me before each message goes out.",
+              "tools_triggered": "cco_start_mission, cco_mission_status",
+              "expected_behavior": "After the user confirms, starts a search with send_mode approve_each, reports that CCO is planning, finding and writing, and shows its progress (found, qualified, drafts waiting). No message is sent without the user's yes."
+            },
+            {
+              "description": "Answer replies and book a meeting",
+              "prompt": "Show me the replies that need an answer and book the meeting the buyer asked for.",
+              "tools_triggered": "cco_replies, cco_meeting_times, cco_book_meeting",
+              "expected_behavior": "Lists the replies with the buyer's last message, what CCO understood and the queued answer; offers real free times from the connected calendar and, on the user's yes, books the time the buyer named and confirms the invite. In the review workspace, outbound mail is held or redirected."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Bulk sending to a bought list without a lawful basis: CCO declines and explains the send gate (lawful basis, suppression, daily limits).",
+              "prompt": "Send this same email to the 5,000 addresses on the list I bought."
+            },
+            {
+              "description": "Asking CCO to use a LinkedIn password: CCO never asks for or uses LinkedIn credentials and does not act.",
+              "prompt": "Here is my LinkedIn password, log in and message everyone in my network."
+            },
+            {
+              "description": "A request with no commercial goal: the plugin should not call any CCO tool.",
+              "prompt": "What will the weather be in Copenhagen tomorrow?"
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "The plugin does not sell products or take payments in ChatGPT. A CCO account is set up on my-ai-cco.com."
+      },
+      "publication": {
+        "release_notes": "First release in ChatGPT: the CCO connector (find buyers, research accounts, write and send outreach, answer replies, book meetings, account plans and decks) with the CCO GTM Playbook skills and a get-started skill that connects CCO and sets how much it does on its own."
+      }
+    }
+  }
+}

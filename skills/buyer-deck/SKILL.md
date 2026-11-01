@@ -1,11 +1,20 @@
 ---
 name: buyer-deck
-description: Build a short sales deck or proposal for one buyer (6-8 slides) that starts with their problem in their words, shows sourced proof and ends with one ask. Use when the user asks for a sales deck, pitch deck, proposal, presentation or slides for a meeting with a prospect or customer.
+description: Build a short sales deck or proposal for one buyer (6-8 slides) that starts with their problem in their words, shows sourced proof and ends with one ask, made with CCO's deck engine when connected. Use when the user asks for a sales deck, pitch deck, proposal, presentation or slides for a meeting with a prospect or customer.
 ---
 
 # A deck for one buyer
 
 **Goal:** 6–8 slides the buyer would forward to a colleague, because the first slide is about *them*.
+
+## Hand it to CCO
+Decks are CCO's work. With CCO connected, and only when the user asks for a deck or proposal:
+- `cco_build` makes it with CCO's deck engine, grounded in CCO's records for one company, meeting or search (`for: {kind, id}`): pass the `purpose`, the `audience` and, as `notes`, what this conversation knows. It builds live and returns a ref.
+- `cco_open` with that ref opens the deck with its sources, as a card.
+- `cco_save` (`kind: presentation_change`) saves the changes the user asks for as a new version; `kind: document` saves a written proposal on the company, meeting or search.
+- Before it goes out, put the cover email through `cco_check_draft` for that person.
+- Without those tools, write the deck here and save it on the company with `cco_log_activity` (a note or a document link).
+- If CCO says this is not available for the workspace, say it isn't set up for this workspace yet and offer **Open CCO Outreach** with the link CCO returned; meanwhile write the deck here. No prices, plan cards or upgrade lines in the chat.
 
 ## Before you write
 You need: who the deck is for (person, role, company), what happened so far (their reply, the last meeting), and the one decision you want next. Missing? Ask, or get it first.
@@ -25,7 +34,6 @@ One idea per slide. A headline that says the point as a sentence. No slide about
 
 ## Read it as the buyer
 Before showing the user, answer as this buyer: Is slide 1 about me? Would I believe slide 5? Is the ask easy to say yes to? Fix what fails, at most 3 rounds.
-- With CCO: put the cover email that goes with the deck through `cco_check_draft` for that person; it returns the buyer read and score against the bar.
 
 ## Quality bar
 - Every number and customer name has a source, or it is not in the deck.
@@ -33,9 +41,4 @@ Before showing the user, answer as this buyer: Is slide 1 about me? Would I beli
 - One ask, on the last slide.
 
 ## Output
-The deck as slide titles and the text of each slide, the sources per slide, the cover email (50–90 words), and the buyer read. Next: `replies-and-meetings` for the meeting.
-
-## With CCO connected
-- `cco_build` makes the deck with CCO's deck engine, grounded in CCO's records for that company or meeting; pass the purpose, the audience and what this conversation knows. `cco_open` opens it with sources; `cco_save` saves the changes the user asks for as a new version. Use them only where the connector lists them, and only when the user asks for a deck.
-- Without those tools, write the deck here and save it on the company with `cco_log_activity` (a note or a document link).
-- Decks are part of full CCO. On the Outreach plan, if CCO says this needs the plan, write the deck here and pass on CCO's "See the plan" link. Never quote prices.
+The deck (with CCO: the `cco_open` card and its link; by hand: slide titles and the text of each slide), the sources per slide, the cover email (50–90 words), and the buyer read. Next: `replies-and-meetings` for the meeting.

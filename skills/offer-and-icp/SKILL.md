@@ -1,15 +1,17 @@
 ---
 name: offer-and-icp
-description: Define a B2B offer and ideal customer profile (ICP) from the user's website and knowledge. Use when the user asks who to sell to, how to describe what they sell, to position their offer, define personas, or before any prospecting.
+description: Define a B2B offer and ideal customer profile (ICP) from the user's website and knowledge, and save it in CCO when connected. Use when the user asks who to sell to, how to describe what they sell, to position their offer, define personas, or before any prospecting.
 ---
 
 # Step 1: offer and ideal customer
 
 **Goal:** one sentence a buyer understands, and a description of the companies and people most likely to buy *now*.
 
+## Hand it to CCO
+With CCO connected, CCO keeps the offer and ideal customer and every search uses them: call `cco_setup` with the website and everything this conversation already holds (what they sell, customers, markets, proof points, customer examples, competitors, buyer roles, industries to avoid, tone, languages, sender name, signature). Ask the user only for what is missing. `cco_status` says whether CCO still needs anything before a first search.
+
 ## Do this
 1. Ask for the user's website (and, if they have one, their best current customer).
-   - With CCO: call `cco_setup` with the website and everything this conversation already holds (what they sell, customers, markets, proof points, customer examples, competitors, buyer roles, industries to avoid, tone, languages, sender name, signature). Ask the user only for what is missing.
 2. Read the site and the best customer's site. Write down only what is supported by them:
    - **What you sell:** one sentence, in the buyer's words, not the product's.
    - **Three outcomes:** what changes for the customer. Use numbers only if the site states them.
@@ -21,7 +23,7 @@ description: Define a B2B offer and ideal customer profile (ICP) from the user's
    - **the signals that make now a good time** (for example: hiring in sales, a new leader, funding, expansion, a new site, a product launch, a regulation deadline, a tender);
    - who to avoid (too small, wrong model, existing customers, competitors).
 4. Show it as a short card, and ask: "Is this right? What would you change?" Update until the user says yes.
-   - With CCO: save the confirmed card with `cco_setup` (same fields) so CCO keeps it and never asks again.
+   - With CCO: save the confirmed card with `cco_setup` (same fields) so CCO keeps it and never asks again. Then offer the first search (`find-customers`).
 
 ## Quality bar
 - A stranger can tell what you sell from the first sentence.

@@ -1,11 +1,20 @@
 ---
 name: replies-and-meetings
-description: Answer sales replies well and turn interest into booked meetings with real times; handle "not now", "no thanks", out-of-office and objections. Use when the user has a reply from a prospect, asks how to respond, wants to book a meeting, or prepare a meeting brief.
+description: Answer sales replies well and turn interest into booked meetings with real times, through CCO when connected; handle "not now", "no thanks", out-of-office and objections. Use when the user has a reply from a prospect, asks how to respond, wants to book a meeting, or prepare a meeting brief.
 ---
 
 # Step 6: replies and meetings
 
 **Goal:** every reply gets a fast, fitting answer, and interest becomes a meeting in the calendar.
+
+## Hand it to CCO
+Replies and meetings are CCO's work. With CCO connected:
+- `cco_replies` lists the replies that need an answer: the buyer's last message, what CCO understood, the answer CCO queued (`ready_key`, `row_version`), and a time the buyer proposed or a date they asked to hear back.
+- As the user's choice allows (see `get-started`), CCO sends the answers and books the meetings itself; only risky replies (an opt-out, a complaint, a price negotiation, anything unclear) come to the user. What waits: approve the exact answer with `cco_approve_send` on the user's yes, or change it with `cco_rewrite_draft`.
+- `cco_meeting_times` gives 2–3 real free times from the connected calendar, in the buyer's time zone. `cco_book_meeting` books the time the buyer named, or the user's pick, and CCO sends the invite with the video link.
+- `cco_set_follow_up` sets the date for a "not now"; the thread comes back then, or sooner if they write.
+- `cco_meetings` lists what is booked and whether each brief is ready.
+- A reply the user got outside CCO: `cco_log_activity` records it and CCO prepares the next step.
 
 ## Read the reply first
 Classify it before writing anything:
@@ -26,13 +35,11 @@ Classify it before writing anything:
 - **Out of office:** follow up after the return date; don't reply to the auto-reply.
 - **48–80 words** for a reply.
 
-## Book
-- With CCO: `cco_replies` lists replies with drafted answers; CCO's meeting tools offer real free times and book the meeting with the invite, the video link and a meeting brief, after the user approves. `cco_meetings` lists what's booked.
-- Without CCO: the user sends the invite from their own calendar.
-
 ## Before the meeting: a one-page brief
 - who they are and their role;
 - what their company is working on (the signal, with its source);
 - what they replied;
 - 3 questions to ask;
 - the one outcome to aim for.
+
+With CCO, the brief comes with the booking (`cco_meetings` links it). Without CCO, the user sends the invite from their own calendar.

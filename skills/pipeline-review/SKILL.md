@@ -1,15 +1,25 @@
 ---
 name: pipeline-review
-description: Review open B2B deals and make an honest forecast (commit, best case, pipeline) based on evidence. Use when the user asks for a pipeline review, deal review, forecast, "which deals will close", stuck or stale deals, or what to do about the open opportunities.
+description: Review open B2B deals and make an honest forecast (commit, best case, pipeline) based on evidence, from CCO's records when connected. Use when the user asks for a pipeline review, deal review, forecast, "which deals will close", stuck or stale deals, or what to do about the open opportunities.
 ---
 
 # Pipeline and forecast review
 
 **Goal:** every open deal has a real next step, the risks are named, and the forecast is one the user could defend to anyone.
 
+## Hand it to CCO
+The pipeline lives in CCO. With CCO connected:
+- `cco_account_plan` per key account: its open deals (stage, value, probability, close) and CCO's commit / best case / pipeline. Compare it with the evidence and say where you differ.
+- `cco_replies` and `cco_meetings`: the real last buyer action and the next booked meeting.
+- `cco_company` and `cco_person`: what changed at the account, with sources.
+- `cco_missions` and `cco_mission_status`: what each search added (replies, meetings) this week.
+- `cco_log_activity`: record a call or meeting the user had outside CCO, so the next review starts from it.
+- `cco_ask`: a question about the user's own deals that the reads above don't answer (read the answer with `cco_turn_result` if it runs as a turn).
+- There is no single forecast tool: build the table from these reads and link each deal with the `open_in_cco` link CCO returned.
+- If CCO says this is not available for the workspace, say it isn't set up for this workspace yet and offer **Open CCO Outreach** with the link CCO returned; meanwhile review the deals the user gives you. No prices, plan cards or upgrade lines in the chat.
+
 ## Do this
 1. List the open deals: company, value, stage, expected close. Use only what the user or their tools show.
-   - With CCO: `cco_account_plan` per key account returns its open deals (stage, value, probability, close) and CCO's commit / best case / pipeline.
 2. For each deal, write down:
    - **next step and its date** (a meeting, a decision, a document due), or "none";
    - **last real buyer action** and its date: something *they* did (replied, met, sent a document, asked for a price). Our emails don't count;
@@ -33,12 +43,3 @@ description: Review open B2B deals and make an honest forecast (commit, best cas
 
 ## Output
 A table: Deal · Stage · Value · Next step (date) · Last buyer action (date) · Flags · Category · Evidence. Then the totals per category, the 3 deals that matter most this week, and one action each. Next: `account-plan` for a key deal, or `team-review` for the whole team.
-
-## With CCO connected
-- `cco_account_plan`: open deals and CCO's own forecast per account; compare it with the evidence and say where you differ.
-- `cco_replies` and `cco_meetings`: the real last buyer action and the next booked meeting.
-- `cco_company` and `cco_person`: what changed at the account, with sources.
-- `cco_log_activity`: record a call or meeting the user had outside CCO, so the next review starts from it.
-- `cco_ask`: a question about the user's own deals that the reads above don't answer.
-- There is no single forecast tool: build the table by hand from these reads and link each deal with the `open_in_cco` link CCO returned.
-- Deals and forecasts are part of full CCO. On the Outreach plan, if CCO says this needs the plan, review the deals the user gives you and pass on CCO's "See the plan" link. Never quote prices.

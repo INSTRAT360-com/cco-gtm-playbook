@@ -1,15 +1,21 @@
 ---
 name: find-customers
-description: Find B2B companies that fit the ideal customer AND have a real, sourced reason to talk now. Use when the user asks to find customers, prospects, leads, target accounts, or "companies like my best customer".
+description: Find B2B buyers - companies that fit the ideal customer AND have a real, sourced reason to talk now - and hand the search to CCO when connected. Use when the user asks to find customers, buyers, prospects, leads, target accounts, or "companies like my best customer".
 ---
 
 # Step 2: companies with a real reason to talk now
 
 **Goal:** a short list where every company has a *why now* you can show, not a long list of names.
 
-## Do this
+## Hand it to CCO
+Finding buyers is CCO's work. With CCO connected:
+- **One look:** `cco_scout` with the search in words ("Danish B2B SaaS, 20-200 people, new sales leader"). It returns each company with fit, why now (source and age), the named buyer and whether the CRM already has them. `cco_scout_add` puts the ones the user picks into a search.
+- **Keep it running:** `cco_start_mission` with the goal (who to win, where, what outcome) and the `send_mode` the user chose in `get-started`. CCO then keeps finding, qualifying, writing and following up. Check it with `cco_mission_status`; steer or pause it with `cco_control_mission`.
+- **What CCO already has:** `cco_find` searches the user's own companies and people.
+- To the user, call it a **search**.
+
+## By hand (or to check CCO's list)
 1. Start from the step-1 card. If it doesn't exist, run `offer-and-icp` first, or ask the user for country, size, roles and signals.
-   - With CCO: `cco_find` or `cco_scout` for a search; `cco_start_mission` to keep finding and working through companies every day; `cco_mission_status` for progress.
 2. Search for **signals first, companies second.** Examples: job posts for sales roles, news of expansion or funding, new leadership, new sites, product launches, public tenders.
 3. For each candidate, record:
    - company, website, city, size;
@@ -25,4 +31,4 @@ description: Find B2B companies that fit the ideal customer AND have a real, sou
 - Never invent a signal to fill the list.
 
 ## Output
-A table: Company · Why now (with source and date) · Fit · Confidence (high/medium/low). End with: "Next: pick the right person at the top 5", which leads to `right-person`.
+A table: Company · Why now (with source and date) · Fit · Confidence (high/medium/low). End with the next step: with CCO, the search is running and `cco_mission_status` shows it; by hand, "pick the right person at the top 5", which leads to `right-person`.
