@@ -1,6 +1,6 @@
 {
   "name": "cco-gtm-playbook",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "The B2B outbound playbook that runs itself: offer and ideal customer, companies with a real reason to talk now, the right person, short evidence-based emails, replies and meetings. Works on its own; connect CCO and Claude does the work with you.",
   "author": {
     "name": "CCO by INSTRAT360",

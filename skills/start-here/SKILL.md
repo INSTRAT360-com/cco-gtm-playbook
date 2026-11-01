@@ -5,7 +5,7 @@ description: Start or plan B2B outbound / go-to-market with the CCO GTM Playbook
 
 # CCO GTM Playbook: start here
 
-The playbook is seven steps. Each step is its own skill, and each works with or without CCO connected.
+The playbook is seven steps, plus four skills for after the first meetings. Each is its own skill, and each works with or without CCO connected.
 
 | Step | Skill | Outcome |
 |---|---|---|
@@ -16,6 +16,15 @@ The playbook is seven steps. Each step is its own skill, and each works with or 
 | 5 | `linkedin-engine` | Profile, posts and comments that start real conversations |
 | 6 | `replies-and-meetings` | Every reply answered well; meetings booked with real times |
 | 7 | `pipeline-rhythm` | A weekly rhythm and a 90-day plan measured on replies and meetings |
+
+After the first meetings, use these when the user asks:
+
+| Skill | Outcome |
+|---|---|
+| `account-plan` | Buying group, whitespace, risks and the next 3 actions for a key account |
+| `pipeline-review` | Every deal with a next step and risk flags; an honest commit / best case / pipeline |
+| `buyer-deck` | 6–8 slides for one buyer: their problem first, sourced proof, one ask |
+| `team-review` | Per seller and per account: what moved, what is stuck, coaching, decisions |
 
 ## How to run it
 1. Ask the user what they want to win: who they sell to, and what a good customer looks like. If they have no clear answer, start at step 1.
@@ -30,7 +39,8 @@ If the CCO connector is available, the steps run on the user's CCO account inste
 - `cco_company`, `cco_person`, `cco_research_account`: research;
 - `cco_check_draft`, `cco_rewrite_draft`: the buyer read and quality bar on any draft;
 - `cco_approve_send`: sending through the user's approval gate;
-- `cco_replies`, `cco_meeting_times`, `cco_book_meeting`, `cco_meetings`: replies and meetings.
+- `cco_replies`, `cco_meeting_times`, `cco_book_meeting`, `cco_meetings`: replies and meetings;
+- `cco_account_plan`: an account's plan, buying group, risks and open deals.
 
 Prefer these tools over manual work. Show the user what CCO returned, including its sources and the next step it suggests.
 

@@ -1,6 +1,6 @@
 ---
 name: pipeline-rhythm
-description: Run outbound as a weekly rhythm and a 90-day plan, measured on replies and meetings, not activity. Use when the user asks for a sales plan, 90-day plan, pipeline review, weekly sales routine, GTM metrics, or "what should I do today".
+description: Run outbound as a weekly rhythm and a 90-day plan, measured on replies and meetings, not activity. Use when the user asks for a sales plan, 90-day plan, weekly outbound review, weekly sales routine, GTM metrics, or "what should I do today".
 ---
 
 # Step 7: the rhythm and the 90-day plan

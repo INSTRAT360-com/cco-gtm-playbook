@@ -1,6 +1,6 @@
 # CCO GTM Playbook
 
-**The B2B outbound playbook as seven Claude skills.** It takes you from "who should we sell to?" to a booked meeting:
+**The B2B outbound playbook as Claude skills.** Seven steps take you from "who should we sell to?" to a booked meeting:
 
 1. your offer and ideal customer, read from your website;
 2. companies with a real, sourced reason to talk now;
@@ -9,6 +9,8 @@
 5. LinkedIn that starts conversations;
 6. replies answered well and meetings booked;
 7. a weekly rhythm and a 90-day plan, measured on replies and meetings.
+
+After the first meetings, four more: key account plans, an honest pipeline and forecast review, a deck for one buyer, and a weekly team review.
 
 It works on its own. **Connect [CCO](https://www.my-ai-cco.com)** and Claude runs the same steps on your CCO account every day: it finds, writes, checks and books. Nothing is sent without your approval, and every fact comes with its source.
 
@@ -31,6 +33,7 @@ Then ask Claude, for example:
 - "Write a first email to the CEO of …"
 - "Answer this reply"
 - "Make my 90-day plan"
+- "Review my pipeline and forecast"
 
 ### With CCO
 Add the CCO connector in Claude (Settings → Connectors). The skills use its `cco_*` tools automatically, and everything stays in your CCO account.
@@ -47,6 +50,10 @@ Add the CCO connector in Claude (Settings → Connectors). The skills use its `c
 | `linkedin-engine` | Profile, posts, and turning comments into conversations (you post and send) |
 | `replies-and-meetings` | Answer the reply first; real times; a meeting brief |
 | `pipeline-rhythm` | Daily and weekly routine; a 90-day plan; replies and meetings, never opens |
+| `account-plan` | A key account: buying group (role, stance, influence), whitespace, risks, next 3 actions with owners and dates |
+| `pipeline-review` | Each deal's next step, last buyer action and risk flags; commit / best case / pipeline with evidence, never inflated |
+| `buyer-deck` | 6–8 slides for one buyer: their problem in their words, sourced proof, one ask, read as the buyer |
+| `team-review` | Per seller and per account: what moved, what is stuck and why, coaching points, decisions needed |
 
 ## Principles
 - No invented facts, numbers, customers or results; every claim has a source or is marked as an assumption.
