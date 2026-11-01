@@ -1,5 +1,8 @@
 # Submit CCO to the OpenAI Plugin Directory
 
+> **Status 1 Nov 2026:** CCO Outreach (package `cco-outreach`) version **1.0.1 is already in review** (submitted 30 Oct, estimated completion 11 Nov), MCP `cco` configured, domain verified. **Do not cancel that review.** This package is **version 1.1.0 of the same plugin** (same package name, MCP key `cco`): when 1.0.1 is approved, publish it, then open the plugin → upload `dist/cco-openai-plugin.zip` as a new version → check findings → submit. Steps 2–7 below are already done for 1.0.1; reuse them.
+
+
 One plugin = the CCO connector (remote MCP) + the CCO GTM Playbook skills + the `get-started` onboarding skill. It is listed once in the directory shared by ChatGPT and Codex. Checked against the OpenAI plugin docs on 1 Nov 2026:
 [Submit your Claude Code plugin](https://developers.openai.com/plugins/guides/submit-claude-plugin) ·
 [Upload and submit](https://developers.openai.com/plugins/deploy/submission) ·

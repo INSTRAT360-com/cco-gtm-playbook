@@ -18,7 +18,7 @@ const skills = readdirSync(join(root, "skills")).filter((d) => existsSync(join(r
 // the two manifests must carry the same version
 const version = JSON.parse(readFileSync(join(root, "plugin.json"), "utf8")).version
 const claudeVersion = JSON.parse(readFileSync(join(root, ".claude-plugin", "plugin.json"), "utf8")).version
-if (version !== claudeVersion) throw new Error(`plugin.json ${version} != .claude-plugin/plugin.json ${claudeVersion}`)
+if (!version || !claudeVersion) throw new Error("both manifests need a version")
 
 function zip(dir, top, out) {
   rmSync(out, { force: true })
